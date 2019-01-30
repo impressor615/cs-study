@@ -8,14 +8,11 @@ function maxSubarraySum(arr, count){
 
   let max = arr.slice(0, count).reduce((result, next) => result + next, 0);
   let temp = max;
-  console.log(max);
   for (let i = 1; i <= arr.length - count; i++) {
     temp = temp - arr[i - 1] + arr[i + count - 1];
-    console.log('temp: ', temp);
     if (temp > max) max = temp;
   }
 
-  console.log(max);
   return max;
 }
 
