@@ -4,6 +4,8 @@
 // - multiple pointers
 
 function isSubsequence(firstString, secondString) {
+  if (!firstString) return true;
+
   let pointer1 = 0;
   let pointer2 = 0;
   while (
