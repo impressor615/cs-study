@@ -13,7 +13,7 @@ function countUniqueValues(arr) {
   let firstPointer = 0;
   let secondPointer = 1;
   const result = [arr[firstPointer]];
-  while (secondPointer !== arr.length) {
+  while (secondPointer < arr.length) {
     const firstIndexVal = result[firstPointer];
     const secondIndexVal = arr[secondPointer];
     if (firstIndexVal === secondIndexVal) {
@@ -25,8 +25,14 @@ function countUniqueValues(arr) {
     }
   }
 
-  console.log('result: ', result);
+  console.log('result: ', result, result.length);
   return result.length;
 }
+
 countUniqueValues([1, 1, 1, 1, 2]); // 2
+countUniqueValues([1, 1, 1, 1, 2, 2, 2, 2, 2]); // 2
 countUniqueValues([1, 2, 3, 4, 4, 4, 5, 5, 6, 7, 12, 12, 13]); // 9
+
+//        2
+// [1, 1, 1, 1, 2]
+//              4
