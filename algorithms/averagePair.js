@@ -10,21 +10,18 @@ function averagePair(arr, avg){
   }
 
   let pointer1 = 0;
-  let pointer2 = 1;
-  let resultAvg = 0;
-  while (resultAvg < avg) {
+  let pointer2 = arr.length - 1;
+  while (pointer1 < pointer2) {
     const firstPointerVal = arr[pointer1];
     const secondPointerVal = arr[pointer2];
-    resultAvg = (firstPointerVal + secondPointerVal) / 2;
+    const resultAvg = (firstPointerVal + secondPointerVal) / 2;
     if (resultAvg === avg) {
       console.log(true);
       return true;
-    }
-
-    if (pointer2 - pointer1 === 1) {
-      pointer2 += 1;
-    } else {
+    } else if (resultAvg < avg) {
       pointer1 += 1;
+    } else {
+      pointer2 -= 1;
     }
   }
 
