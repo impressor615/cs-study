@@ -97,14 +97,22 @@ class DoublyLinkedList {
 
     return current;
   }
+
+  set(index, val) {
+    const foundNode = this.get(index);
+    if (!foundNode) return false;
+    foundNode.val = val;
+    return true;
+  }
 }
 
 
 const doublyLinkedList = new DoublyLinkedList();
-doublyLinkedList
+const result = doublyLinkedList
   .push('10')
   .push('20')
   .push('30')
   .unshift('unshift result')
-  .get(3)
+  .set(3, 10)
 
+console.log(doublyLinkedList.get(3));
