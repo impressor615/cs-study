@@ -104,6 +104,22 @@ class DoublyLinkedList {
     foundNode.val = val;
     return true;
   }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return !!this.unshift(val);
+    if (index === this.length) return !!this.push(val);
+    const newNode = new Node(val);
+    const prevNode = this.get(index - 1);
+    const nextNode = prevNode.next;
+
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+
+    nextNode.prev = newNode;
+    newNode.next = nextNode;
+    return true;
+  }
 }
 
 
@@ -113,6 +129,6 @@ const result = doublyLinkedList
   .push('20')
   .push('30')
   .unshift('unshift result')
-  .set(3, 10)
+  .insert(1, 'inserted')
 
-console.log(doublyLinkedList.get(3));
+console.log(doublyLinkedList);
